@@ -15,5 +15,9 @@ export class TypographyComponent implements OnInit {
       this.listReclamation=r;
     })
   }
+  accpteReclamation( reclamation){
+    this.srv.accepterReclamation(reclamation.emailId,reclamation.password).subscribe(r=>{
+      console.log(r)
+    })  }
 
 }

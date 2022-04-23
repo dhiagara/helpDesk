@@ -27,7 +27,7 @@ export class AuthService {
   };
 
   constructor(private http: HttpClient,private router:Router,private toastr: ToastrService) {}
-  apiurl="http://localhost:8082/helpdesk_vf/user"
+  apiurl="5"
 
   login(username: string, password: string ): Observable<boolean> {
     

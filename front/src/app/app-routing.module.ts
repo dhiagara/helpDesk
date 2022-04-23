@@ -12,30 +12,30 @@ import { TypographyComponent } from './typography/typography.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
-{
-  path: '',
-  pathMatch: 'full',
-  redirectTo: 'home'
-},
-{
-  path:'home',component:DashboardComponent,canActivate:[RandomGuard]
-},
-{
-  path:'user',component:UserComponent,
-},
-{
-  path:'reclamation',component:ReclamationComponent,canActivate:[AuthGuard]
-},
-{
-  path:'tablesusers',component:TablesComponent,canActivate:[RandomGuard] ,
-},
-{
-  path:'listreclamation',component:TypographyComponent ,canActivate:[RandomGuard]
-},
-{
-  path:'reclamationList',component:ListReclamationComponent, canActivate:[AuthGuard]
-},
-{ path: 'login', component: SignInComponent },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login'
+  },
+  {
+    path: 'home', component: DashboardComponent, canActivate: [RandomGuard]
+  },
+  {
+    path: 'user', component: UserComponent,
+  },
+  {
+    path: 'reclamation', component: ReclamationComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'tablesusers', component: TablesComponent, canActivate: [RandomGuard],
+  },
+  {
+    path: 'listreclamation', component: TypographyComponent, canActivate: [RandomGuard]
+  },
+  {
+    path: 'reclamationList', component: ListReclamationComponent, canActivate: [AuthGuard]
+  },
+  { path: 'login', component: SignInComponent },
 ];
 
 @NgModule({

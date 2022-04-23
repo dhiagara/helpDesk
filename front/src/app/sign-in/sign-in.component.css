@@ -1,0 +1,68 @@
+
+body{
+    height: 100%;
+overflow: hidden;
+}
+
+ 
+.carousel-item img{
+   margin-top: 5%;
+    height: 120px;
+
+}
+.card-f{
+        background-color: var(--token-c49a64e3-9cad-4a35-b751-ae578b8e334a, rgba(255, 255, 255, 0.8));
+        width: 100%;
+        border-radius: 10px;
+        opacity: 1;
+}
+
+.btn-lo{
+    
+    border: none;
+    color: rgb(255, 255, 255);
+    outline: none;
+    resize: none;
+    width: 90%;
+    text-align: center;
+    cursor: pointer;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    letter-spacing: -0.2px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px;
+    margin: 5%;
+    text-align: center;
+    border-radius: 0px;
+    background: rgb(113, 178, 70);
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+    transform: none;
+    opacity: 1;
+    transition: transform .2s; /* Animation */
+}
+.btn-lo:hover{
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.icon{
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+    width: 31px;
+    height: 30px;
+    flex: 0 0 auto;
+ margin-left: 10px;
+    display: inline; /* the default for span */
+    
+}
+.icon-list{
+    margin: auto;
+   
+   text-align: center;
+   
+  
+}
+
