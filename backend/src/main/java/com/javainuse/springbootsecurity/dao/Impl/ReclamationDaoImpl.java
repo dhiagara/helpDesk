@@ -21,6 +21,7 @@ public class ReclamationDaoImpl implements IReclamation {
 
     @Override
     public Reclamation addReclamation(Reclamation reclamation) {
+
         return reclamationRepository.save(reclamation);
     }
 
@@ -46,8 +47,8 @@ public class ReclamationDaoImpl implements IReclamation {
         return reclamationRepository.findById(id);
     }
 
-    @Override
+   /* @Override
     public List<Reclamation>findbyUser(User user) {
         return reclamationRepository.findByUser(user);
-    }
+    }*/
 }

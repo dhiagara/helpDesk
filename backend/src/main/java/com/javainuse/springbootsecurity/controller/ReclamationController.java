@@ -7,6 +7,7 @@ import com.javainuse.springbootsecurity.dao.enitity.Reclamation;
 import com.javainuse.springbootsecurity.dao.enitity.User;
 import com.javainuse.springbootsecurity.services.IReclamationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.commons.io.FileUtils;
@@ -39,45 +40,9 @@ public class ReclamationController {
     }
 
     @PostMapping("/add")
-    public Reclamation addProduit(@RequestParam("file[]") MultipartFile file[],
-                              @RequestParam("reclamation") String reclamation)
-            throws JsonParseException, JsonMappingException, Exception
+    public Reclamation addReclamation( @RequestBody Reclamation reclamation ) throws Exception
     {
-        Reclamation prod = new ObjectMapper().readValue(reclamation, Reclamation.class);
-        boolean isExit = new File(context.getRealPath("/Images/")).exists();
-        System.out.println("mk filéé............."+file );
-        if (!isExit)
-        {
-            new File (context.getRealPath("/Images/")).mkdir();
-            System.out.println("mk dir.............");
-        }
-        for (MultipartFile fil:file
-        ) {
-            String filename = fil.getOriginalFilename();
-            Double x =Math.random()*5000;
-            String newFileName = FilenameUtils.getBaseName(filename)+x.toString()+"."+FilenameUtils.getExtension(filename);
-            File serverFile = new File (context.getRealPath("/Images/"+File.separator+newFileName));
-            try
-            {
-
-                FileUtils.writeByteArrayToFile(serverFile,fil.getBytes());
-
-            }catch(Exception e) {
-                e.printStackTrace();
-            }
-
-            prod.setAttachement(newFileName);
-            iReclamationService.addReclamation(prod);
-
-        }
-
-
-
-
-
-
-        return  prod;
-
+        return iReclamationService.addReclamation(reclamation);
     }
     @DeleteMapping("/remove")
     public boolean deleteProduit(@RequestParam Long id){
@@ -89,12 +54,17 @@ public class ReclamationController {
         return  iReclamationService.updateReclamation(reclamation);
 
     }
-    @GetMapping ("/findByUser")
+   /* @GetMapping ("/findByUser")
     public List<Reclamation> findbyUser(@RequestParam User user){
 
         return  iReclamationService.findbyUser(user);
 
-    }
+    }*/
+       @PostMapping("/accept")
+   public User accrptationReclamation( @RequestBody User user) throws Exception
+   {
+       return iReclamationService.accrptationReclamation(user);
+   }
 
 
 }

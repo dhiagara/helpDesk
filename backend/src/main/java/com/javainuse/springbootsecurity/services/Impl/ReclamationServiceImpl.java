@@ -4,6 +4,7 @@ import com.javainuse.springbootsecurity.dao.IReclamation;
 import com.javainuse.springbootsecurity.dao.enitity.Reclamation;
 import com.javainuse.springbootsecurity.dao.enitity.User;
 import com.javainuse.springbootsecurity.services.IReclamationService;
+import com.javainuse.springbootsecurity.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.Optional;
 public class ReclamationServiceImpl implements IReclamationService {
     @Autowired
     IReclamation iReclamation;
+    @Autowired
+    IUserService userService;
     @Override
     public List<Reclamation> getAllReclamation() {
         return iReclamation.getAllReclamation();
@@ -40,7 +43,12 @@ public class ReclamationServiceImpl implements IReclamationService {
     }
 
     @Override
+    public User accrptationReclamation(User user) {
+        return userService.addUser(user) ;
+    }
+
+   /* @Override
     public List <Reclamation> findbyUser(User user) {
         return iReclamation.findbyUser(user);
-    }
+    }*/
 }

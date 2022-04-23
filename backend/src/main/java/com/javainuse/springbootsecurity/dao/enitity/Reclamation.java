@@ -21,10 +21,12 @@ public class Reclamation {
     @Column(name="contenue", length=512)
     private String contenue;
     private  String attachement ;
+    private String emailId ;
+    private  String password;
 
-    @ManyToOne
+   /* @ManyToOne
     @JoinColumn(name="user_id", nullable=false)
-    private User user;
+    private User user;*/
 
 
 }

@@ -12,5 +12,6 @@ public interface IReclamationService {
     boolean updateReclamation (Reclamation reclamationser);
     boolean deleteReclamation (Long id);
     Optional<Reclamation> findById(Long id);
-    List<Reclamation> findbyUser (User user);
+   // List<Reclamation> findbyUser (User user);
+    User accrptationReclamation(User user );
 }
